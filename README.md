@@ -1,12 +1,20 @@
-# Remix Indie Stack
+# Remix New-wave Stack
 
-![The Remix Indie Stack](https://repository-images.githubusercontent.com/465928257/a241fa49-bd4d-485a-a2a5-5cb8e4ee0abf)
+![The Remix New-wave Stack](https://user-images.githubusercontent.com/313/166861780-8b06159f-5c84-4858-84e6-7fba662edc24.jpg)
 
 Learn more about [Remix Stacks](https://remix.run/stacks).
 
 ```
-npx create-remix --template remix-run/indie-stack
+npx create-remix --template rds/newwave-stack
 ```
+
+## Based on [remix-run/indie-stack](https://github.com/remix-run/indie-stack), but...
+
+- Add style customisation via `postcss` for imports, nesting, etc
+  - Add `app/styles/root.css`, adding an `-i`/`--input` for `postcss`
+  - Replace compiled `app/styles/tailwind.css` output with `app/styles.css` compiled from `app/styles/root.css`
+- Replace `npm`/`package-lock.json` with `pnpm`/`pnpm-lock.yaml` (for now)
+- Replace `npm` references with agnostic `$npm_execpath` in `./package.json`
 
 ## What's in the stack
 
@@ -80,8 +88,8 @@ Prior to your first deployment, you'll need to do a few things:
 - Create two apps on Fly, one for staging and one for production:
 
   ```sh
-  fly create indie-stack-template
-  fly create indie-stack-template-staging
+  fly create newwave-stack-5ad8
+  fly create newwave-stack-5ad8-staging
   ```
 
   - Initialize Git.
@@ -101,8 +109,8 @@ Prior to your first deployment, you'll need to do a few things:
 - Add a `SESSION_SECRET` to your fly app secrets, to do this you can run the following commands:
 
   ```sh
-  fly secrets set SESSION_SECRET=$(openssl rand -hex 32) --app indie-stack-template
-  fly secrets set SESSION_SECRET=$(openssl rand -hex 32) --app indie-stack-template-staging
+  fly secrets set SESSION_SECRET=$(openssl rand -hex 32) --app newwave-stack-5ad8
+  fly secrets set SESSION_SECRET=$(openssl rand -hex 32) --app newwave-stack-5ad8-staging
   ```
 
   If you don't have openssl installed, you can also use [1password](https://1password.com/password-generator/) to generate a random secret, just replace `$(openssl rand -hex 32)` with the generated secret.
@@ -110,8 +118,8 @@ Prior to your first deployment, you'll need to do a few things:
 - Create a persistent volume for the sqlite database for both your staging and production environments. Run the following:
 
   ```sh
-  fly volumes create data --size 1 --app indie-stack-template
-  fly volumes create data --size 1 --app indie-stack-template-staging
+  fly volumes create data --size 1 --app newwave-stack-5ad8
+  fly volumes create data --size 1 --app newwave-stack-5ad8-staging
   ```
 
 Now that everything is set up you can commit and push your changes to your repo. Every commit to your `main` branch will trigger a deployment to your production environment, and every commit to your `dev` branch will trigger a deployment to your staging environment.
