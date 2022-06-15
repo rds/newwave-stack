@@ -1,9 +1,8 @@
-import { Link } from "@remix-run/react";
-
-import { useOptionalUser } from "~/utils";
+import { Link } from "@remix-run/react"
+import { useOptionalUser } from "~/utils"
 
 export default function Index() {
-  const user = useOptionalUser();
+  const user = useOptionalUser()
   return (
     <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
       <div className="relative sm:pb-16 sm:pt-8">
@@ -15,17 +14,14 @@ export default function Index() {
                 src="https://user-images.githubusercontent.com/313/166861780-8b06159f-5c84-4858-84e6-7fba662edc24.jpg"
                 alt="Sonic Youth On Stage"
               />
-              <div className="absolute inset-0 bg-opacity-80 bg-sky-500 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-sky-500 bg-opacity-80 mix-blend-multiply" />
             </div>
             <div className="relative px-4 pt-16 pb-8 lg:pb-18 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pt-32">
               <h1 className="text-6xl font-extrabold tracking-tight text-center sm:text-8xl lg:text-9xl">
-                <span className="block uppercase text-sky-500 drop-shadow-md">
-                  New Wave Stack
-                </span>
+                <span className="block uppercase text-sky-500 drop-shadow-md">New Wave Stack</span>
               </h1>
               <p className="max-w-lg mx-auto mt-6 text-xl text-center text-white sm:max-w-3xl">
-                Check the README.md file for instructions on how to get this
-                project deployed.
+                Check the README.md file for instructions on how to get this project deployed.
               </p>
               <div className="max-w-sm mx-auto mt-10 sm:flex sm:max-w-none sm:justify-center">
                 {user ? (
@@ -134,5 +130,5 @@ export default function Index() {
         </div>
       </div>
     </main>
-  );
+  )
 }
