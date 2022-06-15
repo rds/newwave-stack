@@ -1,7 +1,6 @@
-/**
- * @type {import('@types/eslint').Linter.BaseConfig}
- */
+/** @type {import('@types/eslint').Linter.Config} */
 module.exports = {
+  ignorePatterns: ["/node_modules", "/build", "/public/build"],
   extends: [
     "@remix-run/eslint-config",
     "@remix-run/eslint-config/node",
@@ -16,4 +15,4 @@ module.exports = {
       version: 27,
     },
   },
-};
+}

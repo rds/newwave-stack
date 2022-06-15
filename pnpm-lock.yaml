@@ -29,6 +29,7 @@ specifiers:
   cypress: ^9.5.3
   eslint: ^8.12.0
   eslint-config-prettier: ^8.5.0
+  eslint-plugin-simple-import-sort: ^7.0.0
   happy-dom: ^2.55.0
   msw: ^0.39.2
   npm-run-all: ^4.1.5
@@ -86,6 +87,7 @@ devDependencies:
   cypress: 9.6.0
   eslint: 8.14.0
   eslint-config-prettier: 8.5.0_eslint@8.14.0
+  eslint-plugin-simple-import-sort: 7.0.0_eslint@8.14.0
   happy-dom: 2.55.0
   msw: 0.39.2
   npm-run-all: 4.1.5
@@ -3871,6 +3873,14 @@ packages:
       resolve: 2.0.0-next.3
       semver: 6.3.0
       string.prototype.matchall: 4.0.7
+    dev: true
+
+  /eslint-plugin-simple-import-sort/7.0.0_eslint@8.14.0:
+    resolution: {integrity: sha512-U3vEDB5zhYPNfxT5TYR7u01dboFZp+HNpnGhkDB2g/2E4wZ/g1Q9Ton8UwCLfRV9yAKyYqDh62oHOamvkFxsvw==}
+    peerDependencies:
+      eslint: '>=5.0.0'
+    dependencies:
+      eslint: 8.14.0
     dev: true
 
   /eslint-plugin-testing-library/5.3.1_t725usgvqspm5woeqpaxbfp2qu:

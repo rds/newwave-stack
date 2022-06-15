@@ -5,12 +5,11 @@
   "license": "",
   "sideEffects": false,
   "scripts": {
-    "postinstall": "remix setup node",
     "build": "run-s build:*",
     "build:css": "$npm_execpath run generate:css -- --minify",
     "build:remix": "remix build",
     "dev": "run-p dev:*",
-    "dev:css": "$npm_execpath run generate:css -- --watch",
+    "dev:css": "$npm_execpath run generate:css --watch",
     "dev:remix": "cross-env NODE_ENV=development binode --require ./mocks -- @remix-run/dev:remix dev",
     "format": "prettier --write .",
     "generate:css": "postcss ./app/styles/root.css -o ./app/styles.css",
@@ -19,18 +18,12 @@
     "start": "remix-serve build",
     "start:mocks": "binode --require ./mocks -- @remix-run/serve:remix-serve build",
     "test": "vitest",
-    "test:e2e:dev": "start-server-and-test dev http://localhost:3000 \"cypress open\"",
+    "test:e2e:dev": "start-server-and-test dev http://localhost:3000 \"$npm_execpath cypress open\"",
     "pretest:e2e:run": "$npm_execpath run build",
-    "test:e2e:run": "cross-env PORT=8811 start-server-and-test start:mocks http://localhost:8811 \"cypress run\"",
+    "test:e2e:run": "cross-env PORT=8811 start-server-and-test start:mocks http://localhost:8811 \"$npm_execpath cypress run\"",
     "typecheck": "tsc -b && tsc -b cypress",
     "validate": "run-p \"test -- --run\" lint typecheck test:e2e:run"
   },
-  "prettier": {},
-  "eslintIgnore": [
-    "/node_modules",
-    "/build",
-    "/public/build"
-  ],
   "dependencies": {
     "@prisma/client": "^3.11.1",
     "@remix-run/node": "*",
